@@ -1,8 +1,8 @@
 /** @type {import("prettier").Options} */
 module.exports = {
-  arrowParens: "avoid",
+  arrowParens: 'avoid',
   semi: false,
   singleQuote: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   useTabs: false,
-};
+}
