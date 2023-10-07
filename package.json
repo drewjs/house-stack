@@ -7,6 +7,7 @@
     "build": "remix build",
     "dev": "remix dev --manual",
     "format": "prettier --write .",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc"
   },
@@ -28,6 +29,11 @@
     "prettier": "^3.0.3",
     "typescript": "^5.1.6"
   },
+  "eslintIgnore": [
+    "/node_modules",
+    "/build",
+    "/public/build"
+  ],
   "engines": {
     "node": ">=18.0.0"
   }
