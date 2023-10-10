@@ -1,5 +1,9 @@
 import { cssBundleHref } from '@remix-run/css-bundle'
-import type { LinksFunction } from '@remix-run/node'
+import {
+  type LinksFunction,
+  type LoaderFunctionArgs,
+  json,
+} from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -9,6 +13,11 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 import globalStyles from '~/styles/global.css'
+import { getUser } from './utils/session.server'
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  return json({ user: await getUser(request) })
+}
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalStyles },

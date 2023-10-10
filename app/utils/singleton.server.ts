@@ -1,13 +1,10 @@
-// Since the dev server re-requires the bundle, do some shenanigans to make
+// since the dev server re-requires the bundle, do some shenanigans to make
 // certain things persist across that 😆
-// Borrowed/modified from https://github.com/jenseng/abuse-the-platform/blob/2993a7e846c95ace693ce61626fa072174c8d9c7/app/utils/singleton.ts
+// Borrowed/modified from https://github.com/jenseng/abuse-the-platform
 
-export const singleton = <Value>(
-  name: string,
-  valueFactory: () => Value,
-): Value => {
-  const g = global as any
-  g.__singletons ??= {}
-  g.__singletons[name] ??= valueFactory()
-  return g.__singletons[name]
+export function singleton<T>(name: string, valueFactory: () => T) {
+  const yolo = global as any
+  yolo.__singletons ??= {}
+  yolo.__singletons[name] ??= valueFactory()
+  return yolo.__singletons[name] as T
 }

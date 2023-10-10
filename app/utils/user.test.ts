@@ -1,4 +1,4 @@
-import { validateEmail } from './misc'
+import { validateEmail } from '~/utils/user'
 
 test('validateEmail returns false for non-emails', () => {
   expect(validateEmail(undefined)).toBe(false)
