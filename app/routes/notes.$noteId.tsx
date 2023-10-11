@@ -12,10 +12,10 @@ import { invariant } from '~/utils/misc'
 import { requireUserId } from '~/utils/session.server'
 
 export const loader = async ({ params, request }: LoaderFunctionArgs) => {
-  const userId = await requireUserId(request)
+  let userId = await requireUserId(request)
   invariant(params.noteId, 'noteId not found')
 
-  const note = await getNote({ id: +params.noteId, userId })
+  let note = await getNote({ id: +params.noteId, userId })
   if (!note) {
     throw new Response('Not Found', { status: 404 })
   }
@@ -23,7 +23,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
 }
 
 export const action = async ({ params, request }: ActionFunctionArgs) => {
-  const userId = await requireUserId(request)
+  let userId = await requireUserId(request)
   invariant(params.noteId, 'noteId not found')
 
   await deleteNote({ id: +params.noteId, userId })
@@ -32,7 +32,7 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
 }
 
 export default function NoteDetailsPage() {
-  const data = useLoaderData<typeof loader>()
+  let data = useLoaderData<typeof loader>()
 
   return (
     <div>
@@ -52,7 +52,7 @@ export default function NoteDetailsPage() {
 }
 
 export function ErrorBoundary() {
-  const error = useRouteError()
+  let error = useRouteError()
 
   if (error instanceof Error) {
     return <div>An unexpected error occurred: {error.message}</div>

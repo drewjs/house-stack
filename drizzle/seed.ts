@@ -15,13 +15,13 @@ const client = createClient({
 const db = drizzle(client)
 
 async function seed() {
-  const user = await db
+  let user = await db
     .insert(users)
     .values({ id: 1, email: 'rachel@remix.run' })
     .returning()
     .get()
 
-  const hash = bcrypt.hashSync('racheliscool', 10)
+  let hash = bcrypt.hashSync('racheliscool', 10)
   await db.insert(passwords).values({ hash, userId: user.id })
 
   await db.insert(notes).values([

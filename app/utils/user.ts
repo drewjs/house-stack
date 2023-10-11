@@ -6,7 +6,7 @@ function isUser(user: any): user is User {
 }
 
 export function useOptionalUser(): User | undefined {
-  const data = useMatchesData('root')
+  let data = useMatchesData('root')
   if (!data || !isUser(data.user)) {
     return undefined
   }
@@ -14,7 +14,7 @@ export function useOptionalUser(): User | undefined {
 }
 
 export function useUser(): User {
-  const user = useOptionalUser()
+  let user = useOptionalUser()
   invariant(user, 'No user found')
   return user
 }

@@ -44,7 +44,7 @@ function handleBotRequest(
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false
-    const { pipe, abort } = renderToPipeableStream(
+    let { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
         url={request.url}
@@ -53,8 +53,8 @@ function handleBotRequest(
       {
         onAllReady() {
           shellRendered = true
-          const body = new PassThrough()
-          const stream = createReadableStreamFromReadable(body)
+          let body = new PassThrough()
+          let stream = createReadableStreamFromReadable(body)
 
           responseHeaders.set('Content-Type', 'text/html')
 
@@ -94,7 +94,7 @@ function handleBrowserRequest(
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false
-    const { pipe, abort } = renderToPipeableStream(
+    let { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
         url={request.url}
@@ -103,8 +103,8 @@ function handleBrowserRequest(
       {
         onShellReady() {
           shellRendered = true
-          const body = new PassThrough()
-          const stream = createReadableStreamFromReadable(body)
+          let body = new PassThrough()
+          let stream = createReadableStreamFromReadable(body)
 
           responseHeaders.set('Content-Type', 'text/html')
 

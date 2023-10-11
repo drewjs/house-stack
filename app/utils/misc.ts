@@ -34,8 +34,8 @@ export function safeRedirect(
 export function useMatchesData(
   id: string,
 ): Record<string, unknown> | undefined {
-  const matchingRoutes = useMatches()
-  const route = useMemo(
+  let matchingRoutes = useMatches()
+  let route = useMemo(
     () => matchingRoutes.find(route => route.id === id),
     [matchingRoutes, id],
   )

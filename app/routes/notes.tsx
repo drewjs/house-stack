@@ -7,14 +7,14 @@ import { requireUserId } from '~/utils/session.server'
 import { useUser } from '~/utils/user'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const userId = await requireUserId(request)
-  const noteListItems = await getNoteListItems({ userId })
+  let userId = await requireUserId(request)
+  let noteListItems = await getNoteListItems({ userId })
   return json({ noteListItems })
 }
 
 export default function NotesPage() {
-  const data = useLoaderData<typeof loader>()
-  const user = useUser()
+  let data = useLoaderData<typeof loader>()
+  let user = useUser()
 
   return (
     <div className="flex h-full min-h-screen flex-col">

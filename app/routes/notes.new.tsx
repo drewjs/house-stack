@@ -7,11 +7,11 @@ import { createNote } from '~/models/note.server'
 import { requireUserId } from '~/utils/session.server'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const userId = await requireUserId(request)
+  let userId = await requireUserId(request)
 
-  const formData = await request.formData()
-  const title = formData.get('title')
-  const body = formData.get('body')
+  let formData = await request.formData()
+  let title = formData.get('title')
+  let body = formData.get('body')
 
   if (typeof title !== 'string' || title.length === 0) {
     return json(
@@ -27,15 +27,15 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     )
   }
 
-  const note = await createNote({ body, title, userId })
+  let note = await createNote({ body, title, userId })
 
   return redirect(`/notes/${note.id}`)
 }
 
 export default function NewNotePage() {
-  const actionData = useActionData<typeof action>()
-  const titleRef = useRef<HTMLInputElement>(null)
-  const bodyRef = useRef<HTMLTextAreaElement>(null)
+  let actionData = useActionData<typeof action>()
+  let titleRef = useRef<HTMLInputElement>(null)
+  let bodyRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
     if (actionData?.errors?.title) {

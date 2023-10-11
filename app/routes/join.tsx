@@ -13,10 +13,10 @@ import { safeRedirect } from '~/utils/misc'
 import { validateEmail } from '~/utils/user'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const formData = await request.formData()
-  const email = formData.get('email')
-  const password = formData.get('password')
-  const redirectTo = safeRedirect(formData.get('redirectTo'), '/')
+  let formData = await request.formData()
+  let email = formData.get('email')
+  let password = formData.get('password')
+  let redirectTo = safeRedirect(formData.get('redirectTo'), '/')
 
   if (!validateEmail(email)) {
     return json(
@@ -39,7 +39,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     )
   }
 
-  const existingUser = await getUserByEmail(email)
+  let existingUser = await getUserByEmail(email)
   if (existingUser) {
     return json(
       {
@@ -52,7 +52,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     )
   }
 
-  const user = await createUser({ email, password })
+  let user = await createUser({ email, password })
 
   return createUserSession({
     redirectTo,
@@ -63,7 +63,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 }
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const userId = await getUserId(request)
+  let userId = await getUserId(request)
   if (userId) return redirect('/')
   return json({})
 }
@@ -71,11 +71,11 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export const meta: MetaFunction = () => [{ title: 'Sign Up' }]
 
 export default function Join() {
-  const [searchParams] = useSearchParams()
-  const redirectTo = searchParams.get('redirectTo') ?? undefined
-  const actionData = useActionData<typeof action>()
-  const emailRef = useRef<HTMLInputElement>(null)
-  const passwordRef = useRef<HTMLInputElement>(null)
+  let [searchParams] = useSearchParams()
+  let redirectTo = searchParams.get('redirectTo') ?? undefined
+  let actionData = useActionData<typeof action>()
+  let emailRef = useRef<HTMLInputElement>(null)
+  let passwordRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (actionData?.errors?.email) {

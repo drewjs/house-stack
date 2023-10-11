@@ -79,6 +79,9 @@ devDependencies:
   eslint:
     specifier: ^8.38.0
     version: 8.51.0
+  eslint-plugin-prefer-let:
+    specifier: ^3.0.1
+    version: 3.0.1
   happy-dom:
     specifier: ^12.9.1
     version: 12.9.1
@@ -3443,6 +3446,13 @@ packages:
       minimatch: 3.1.2
       resolve: 1.22.6
       semver: 6.3.1
+    dev: true
+
+  /eslint-plugin-prefer-let@3.0.1:
+    resolution: {integrity: sha512-vbznkkBSXB63d4o1o0NIm5C2ey3V5wKr/25dAvPdydQXdowAcnr69cbLgxd2YAG81IV5eddCO55Lp6gL7wSE4w==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      requireindex: 1.2.0
     dev: true
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.51.0):

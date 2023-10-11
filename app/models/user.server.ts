@@ -23,8 +23,8 @@ export async function createUser({
   email: User['email']
   password: string
 }): Promise<User> {
-  const hash = bcrypt.hash(password, 10)
-  const user = await db.insert(users).values({ email }).returning().get()
+  let hash = bcrypt.hash(password, 10)
+  let user = await db.insert(users).values({ email }).returning().get()
   await db.insert(passwords).values({ userId: user.id, hash: await hash })
   return user
 }
@@ -33,13 +33,13 @@ export async function verifyLogin(
   email: User['email'],
   password: Password['hash'],
 ): Promise<User | null> {
-  const user = await db.query.users.findFirst({
+  let user = await db.query.users.findFirst({
     where: eq(users.email, email),
     with: { password: true },
   })
   if (!user) return null
   if (!bcrypt.compareSync(password, user.password.hash)) return null
 
-  const { password: _, ...sanitizedUser } = user
+  let { password: _, ...sanitizedUser } = user
   return sanitizedUser
 }
