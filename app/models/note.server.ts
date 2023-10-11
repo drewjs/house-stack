@@ -1,6 +1,7 @@
-import { type InferSelectModel, eq, desc, and } from 'drizzle-orm'
-import { db } from '~/db.server'
+import { type InferSelectModel, and, desc, eq } from 'drizzle-orm'
 import { notes } from 'drizzle/schema'
+
+import { db } from '~/db.server'
 
 export type Note = InferSelectModel<typeof notes>
 

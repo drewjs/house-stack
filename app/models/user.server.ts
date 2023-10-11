@@ -1,7 +1,8 @@
 import bcrypt from 'bcryptjs'
 import { type InferSelectModel, eq } from 'drizzle-orm'
-import { db } from '~/db.server'
 import { passwords, users } from 'drizzle/schema'
+
+import { db } from '~/db.server'
 
 export type User = InferSelectModel<typeof users>
 export type Password = InferSelectModel<typeof passwords>

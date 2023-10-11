@@ -1,8 +1,9 @@
-import 'dotenv/config'
-import bcrypt from 'bcryptjs'
 import { createClient } from '@libsql/client'
+import bcrypt from 'bcryptjs'
+import 'dotenv/config'
 import { drizzle } from 'drizzle-orm/libsql'
 import { notes, passwords, users } from 'drizzle/schema'
+
 import { invariant } from '~/utils/misc'
 
 invariant(process.env.DATABASE_URL, 'DATABASE_URL missing in environment')

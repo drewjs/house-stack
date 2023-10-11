@@ -8,8 +8,8 @@ import { Form, Link, useActionData, useSearchParams } from '@remix-run/react'
 import { useEffect, useRef } from 'react'
 
 import { verifyLogin } from '~/models/user.server'
-import { createUserSession, getUserId } from '~/utils/session.server'
 import { safeRedirect } from '~/utils/misc'
+import { createUserSession, getUserId } from '~/utils/session.server'
 import { validateEmail } from '~/utils/user'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {

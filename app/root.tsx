@@ -12,7 +12,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+
 import globalStyles from '~/styles/global.css'
+
 import { getUser } from './utils/session.server'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
