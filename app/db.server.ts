@@ -6,11 +6,12 @@ import { invariant } from '~/utils/misc'
 import { singleton } from '~/utils/singleton.server'
 
 const client = singleton('db-client', () => {
-  invariant(process.env.DATABASE_URL, 'DATABASE_URL is required')
+  invariant(process.env.DB_URL, 'DB_URL is required')
 
   return createClient({
-    url: process.env.DATABASE_URL,
-    authToken: process.env.DATABASE_AUTH_TOKEN,
+    url: process.env.DB_URL,
+    authToken: process.env.DB_AUTH_TOKEN,
+    syncUrl: process.env.DB_SYNC_URL,
   })
 })
 

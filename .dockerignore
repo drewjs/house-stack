@@ -1,0 +1,10 @@
+node_modules
+
+/.cache
+/build
+/coverage
+/playwright-report
+/playwright/.cache
+/public/build
+.env
+*.db

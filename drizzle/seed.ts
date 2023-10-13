@@ -6,11 +6,11 @@ import { notes, passwords, users } from 'drizzle/schema'
 
 import { invariant } from '~/utils/misc'
 
-invariant(process.env.DATABASE_URL, 'DATABASE_URL missing in environment')
+invariant(process.env.DB_URL, 'DB_URL missing in environment')
 
 const client = createClient({
-  url: process.env.DATABASE_URL,
-  authToken: process.env.DATABASE_AUTH_TOKEN,
+  url: process.env.DB_URL,
+  authToken: process.env.DB_AUTH_TOKEN,
 })
 
 const db = drizzle(client)

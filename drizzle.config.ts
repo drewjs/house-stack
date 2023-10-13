@@ -7,8 +7,8 @@ export default {
   breakpoints: true,
   driver: 'turso',
   dbCredentials: {
-    url: process.env.DATABASE_URL as string,
-    authToken: process.env.DATABASE_AUTH_TOKEN,
+    url: process.env.DB_URL as string,
+    authToken: process.env.DB_AUTH_TOKEN,
   },
   // print out SQL statements executed with db:push
   verbose: true,
