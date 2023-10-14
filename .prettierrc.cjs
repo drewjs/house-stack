@@ -1,4 +1,7 @@
-/** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
+/** @typedef {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig */
+/** @typedef {import("prettier").Config} PrettierConfig */
+
+/** @type { PrettierConfig | SortImportsConfig } */
 module.exports = {
   arrowParens: 'avoid',
   semi: false,
