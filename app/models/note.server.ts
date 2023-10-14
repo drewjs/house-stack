@@ -1,7 +1,7 @@
 import { and, desc, eq } from 'drizzle-orm'
 
 import { db } from '~/db/db.server'
-import { type Note, notes } from '~/db/schema'
+import { notes, type Note } from '~/db/schema'
 
 export type { Note }
 

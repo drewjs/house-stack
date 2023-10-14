@@ -1,6 +1,6 @@
 import { createCookieSessionStorage, redirect } from '@remix-run/node'
 
-import { type User, getUserById } from '~/models/user.server'
+import { getUserById, type User } from '~/models/user.server'
 
 import { invariant } from './misc'
 

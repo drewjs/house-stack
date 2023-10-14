@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs'
 import { eq } from 'drizzle-orm'
 
 import { db } from '~/db/db.server'
-import { type Password, type User, passwords, users } from '~/db/schema'
+import { passwords, users, type Password, type User } from '~/db/schema'
 
 export type { User }
 

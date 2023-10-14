@@ -1,15 +1,13 @@
-/** @type {import("prettier").Options} */
+/** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
 module.exports = {
   arrowParens: 'avoid',
   semi: false,
   singleQuote: true,
   trailingComma: 'all',
   useTabs: false,
-  importOrder: ['<THIRD_PARTY_MODULES>', '^~/(.*)$', '^[./]'],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
+  importOrder: ['<THIRD_PARTY_MODULES>', '', '^~/(.*)$', '', '^[.]'],
   plugins: [
-    '@trivago/prettier-plugin-sort-imports',
+    '@ianvs/prettier-plugin-sort-imports',
     'prettier-plugin-tailwindcss',
   ],
 }

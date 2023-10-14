@@ -1,8 +1,8 @@
 import { cssBundleHref } from '@remix-run/css-bundle'
 import {
+  json,
   type LinksFunction,
   type LoaderFunctionArgs,
-  json,
 } from '@remix-run/node'
 import {
   Links,
