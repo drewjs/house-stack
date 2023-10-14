@@ -2,14 +2,14 @@ import 'dotenv/config'
 import { type Config } from 'drizzle-kit'
 
 export default {
-  out: './drizzle/migrations',
-  schema: './drizzle/schema.ts',
+  out: './app/db/migrations',
+  schema: './app/db/schema.ts',
   breakpoints: true,
   driver: 'turso',
   dbCredentials: {
-    url: process.env.DB_URL as string,
-    authToken: process.env.DB_AUTH_TOKEN,
+    url: process.env.DATABASE_URL as string,
+    authToken: process.env.DATABASE_AUTH_TOKEN,
   },
-  // print out SQL statements executed with db:push
+  tablesFilter: ['!libsql_wasm_func_table'],
   verbose: true,
 } satisfies Config

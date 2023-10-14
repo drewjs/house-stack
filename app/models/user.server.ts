@@ -1,11 +1,10 @@
 import bcrypt from 'bcryptjs'
-import { type InferSelectModel, eq } from 'drizzle-orm'
-import { passwords, users } from 'drizzle/schema'
+import { eq } from 'drizzle-orm'
 
-import { db } from '~/db.server'
+import { db } from '~/db/db.server'
+import { type Password, type User, passwords, users } from '~/db/schema'
 
-export type User = InferSelectModel<typeof users>
-export type Password = InferSelectModel<typeof passwords>
+export type { User }
 
 export async function getUserById(id: User['id']): Promise<User | undefined> {
   return db.query.users.findFirst({ where: eq(users.id, id) })

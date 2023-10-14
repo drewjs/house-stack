@@ -8,6 +8,9 @@ export const users = sqliteTable('users', {
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
 })
 
+export type User = typeof users.$inferSelect
+export type NewUser = typeof users.$inferInsert
+
 export const usersRelations = relations(users, ({ many, one }) => ({
   password: one(passwords, {
     fields: [users.id],
@@ -25,6 +28,9 @@ export const passwords = sqliteTable('passwords', {
     }),
 })
 
+export type Password = typeof passwords.$inferSelect
+export type NewPassword = typeof passwords.$inferInsert
+
 export const notes = sqliteTable('notes', {
   id: integer('id').primaryKey(),
   title: text('title').notNull(),
@@ -37,6 +43,9 @@ export const notes = sqliteTable('notes', {
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
 })
+
+export type Note = typeof notes.$inferSelect
+export type NewNote = typeof notes.$inferInsert
 
 export const notesRelations = relations(notes, ({ one }) => ({
   user: one(users, {

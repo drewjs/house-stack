@@ -1,8 +1,8 @@
 import type { LoaderFunctionArgs } from '@remix-run/node'
 import { sql } from 'drizzle-orm'
-import { users } from 'drizzle/schema'
 
-import { db } from '~/db.server'
+import { db } from '~/db/db.server'
+import { users } from '~/db/schema'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   let host =

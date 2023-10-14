@@ -1,9 +1,9 @@
-import { type InferSelectModel, and, desc, eq } from 'drizzle-orm'
-import { notes } from 'drizzle/schema'
+import { and, desc, eq } from 'drizzle-orm'
 
-import { db } from '~/db.server'
+import { db } from '~/db/db.server'
+import { type Note, notes } from '~/db/schema'
 
-export type Note = InferSelectModel<typeof notes>
+export type { Note }
 
 export function getNoteListItems({
   userId,
