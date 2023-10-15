@@ -1,4 +1,4 @@
-app = "indie-stack-template"
+app = "house-stack-template"
 primary_region = "sjc"
 
 kill_signal = "SIGINT"
