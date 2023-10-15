@@ -114,10 +114,15 @@ const main = async ({ packageManager, rootDirectory }) => {
     .replace(initInstructions, '')
 
   const newDockerfile = pm.lockfile
-    ? dockerfile.replace(
-        new RegExp(escapeRegExp('package.json'), 'g'),
-        `package.json ${pm.lockfile}`,
-      )
+    ? dockerfile
+        .replace(
+          new RegExp(escapeRegExp('package.json'), 'g'),
+          `package.json ${pm.lockfile}`,
+        )
+        .replace(
+          new RegExp(escapeRegExp('pnpm install'), 'g'),
+          `pnpm install --frozen-lockfile`,
+        )
     : dockerfile
 
   updatePackageJson({ APP_NAME, packageJson })
