@@ -23,7 +23,8 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - name: ⚙️ Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 8
 
@@ -47,7 +48,8 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - name: ⚙️ Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 8
 
@@ -71,7 +73,8 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - name: ⚙️ Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 8
 
@@ -89,13 +92,14 @@ jobs:
         run: pnpm run test --coverage
 
   playwright:
-    name: ⚫️ Playwright
+    name: 🎭 Playwright
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - name: ⚙️ Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 8
 
@@ -112,17 +116,17 @@ jobs:
       - name: 🏄 Copy test env vars
         run: cp .env.example .env
 
-      - name: 🛠 Setup Database
+      - name: 🛠 Setup database
         run: pnpm run db:push
 
       - name: ⚙️ Build
         run: pnpm run build
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright browsers
         run: pnpm run test:e2e:install
 
-      # - name: Playwright run
-      #   run: pnpm run test:e2e:run
+      - name: 🎭 Playwright run
+        run: pnpm run test:e2e:run
 
   deploy:
     name: 🚀 Deploy
