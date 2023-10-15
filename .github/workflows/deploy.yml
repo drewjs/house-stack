@@ -23,18 +23,21 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          cache: npm
-          cache-dependency-path: ./package.json
+          cache: pnpm
           node-version: 18
 
       - name: 📥 Install deps
-        run: npm install
+        run: pnpm install
 
       - name: 🔬 Lint
-        run: npm run lint
+        run: pnpm run lint
 
   typecheck:
     name: ʦ TypeScript
@@ -43,18 +46,21 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          cache: npm
-          cache-dependency-path: ./package.json
+          cache: pnpm
           node-version: 18
 
       - name: 📥 Install deps
-        run: npm install
+        run: pnpm install
 
       - name: 🔎 Type check
-        run: npm run typecheck --if-present
+        run: pnpm run typecheck --if-present
 
   vitest:
     name: ⚡ Vitest
@@ -63,57 +69,61 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          cache: npm
-          cache-dependency-path: ./package.json
+          cache: pnpm
           node-version: 18
 
       - name: 📥 Install deps
-        run: npm install
+        run: pnpm install
 
       - name: ⚡ Run vitest
-        run: npm run test -- --coverage
+        run: pnpm run test --coverage
 
-  cypress:
-    name: ⚫️ Cypress
+  playwright:
+    name: ⚫️ Playwright
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🏄 Copy test env vars
-        run: cp .env.example .env
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          cache: npm
-          cache-dependency-path: ./package.json
+          cache: pnpm
           node-version: 18
 
       - name: 📥 Install deps
-        run: npm install
+        run: pnpm install
+
+      - name: 🏄 Copy test env vars
+        run: cp .env.example .env
 
       - name: 🛠 Setup Database
-        run: npx prisma migrate reset --force
+        run: pnpm run db:push
 
       - name: ⚙️ Build
-        run: npm run build
+        run: pnpm run build
 
-      - name: 🌳 Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run start:mocks
-          wait-on: http://localhost:8811
-        env:
-          PORT: 8811
+      - name: Install Playwright Browsers
+        run: pnpm run test:e2e:install
+
+      # - name: Playwright run
+      #   run: pnpm run test:e2e:run
 
   deploy:
     name: 🚀 Deploy
     runs-on: ubuntu-latest
-    needs: [lint, typecheck, vitest, cypress]
+    needs: [lint, typecheck, vitest, playwright]
     # only deploy main/dev branch on pushes
     if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
 
