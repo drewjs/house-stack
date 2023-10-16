@@ -14,7 +14,7 @@
     "dev": "remix dev --manual",
     "format": "prettier --write .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "setup": "pnpm db:push && pnpm db:seed",
+    "setup": "pnpm db:seed",
     "start": "binode -r dotenv/config -- @remix-run/serve:remix-serve ./build/index.js",
     "start:mocks": "binode -r dotenv/config -r ./mocks/index.cjs -- @remix-run/serve:remix-serve ./build/index.js",
     "test": "vitest",

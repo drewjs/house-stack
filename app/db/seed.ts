@@ -1,11 +1,25 @@
 import 'dotenv/config'
 
+import { createClient } from '@libsql/client/sqlite3'
 import bcrypt from 'bcryptjs'
+import { drizzle } from 'drizzle-orm/libsql'
+import { migrate } from 'drizzle-orm/libsql/migrator'
 
-import { db } from './db.server'
-import { notes, passwords, users } from './schema'
+import { notes, passwords, users } from '~/db/schema'
+import { invariant } from '~/utils/misc'
+
+invariant(process.env.DATABASE_URL, 'DATABASE_URL is required')
+
+const client = createClient({
+  url: process.env.DATABASE_URL,
+  authToken: process.env.DATABASE_AUTH_TOKEN,
+})
+
+const db = drizzle(client)
 
 async function seed() {
+  await migrate(db, { migrationsFolder: 'migrations' })
+
   let user = await db
     .insert(users)
     .values({ id: 1, email: 'rachel@remix.run' })
