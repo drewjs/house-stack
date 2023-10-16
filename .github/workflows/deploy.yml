@@ -116,8 +116,8 @@ jobs:
       - name: 🏄 Copy test env vars
         run: cp .env.example .env
 
-      - name: 🛠 Setup database
-        run: pnpm run db:push
+      # - name: 🛠 Setup database
+      #   run: pnpm run db:push
 
       - name: ⚙️ Build
         run: pnpm run build
