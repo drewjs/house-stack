@@ -58,5 +58,5 @@ RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-c
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-# ENV DATABASE_URL="file:///data/sqlite.db"
+ENV DATABASE_URL="file:///data/sqlite.db"
 CMD [ "pnpm", "run", "start" ]

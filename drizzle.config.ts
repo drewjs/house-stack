@@ -3,7 +3,7 @@ import 'dotenv/config'
 import { type Config } from 'drizzle-kit'
 
 export default {
-  out: './app/db/migrations',
+  out: './migrations',
   schema: './app/db/schema.ts',
   breakpoints: true,
   driver: 'turso',

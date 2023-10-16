@@ -2,6 +2,8 @@
   "name": "house-stack-template",
   "private": true,
   "sideEffects": false,
+  "license": "MIT",
+  "author": "drewjs (https://drewjs.com)",
   "type": "module",
   "scripts": {
     "build": "remix build",

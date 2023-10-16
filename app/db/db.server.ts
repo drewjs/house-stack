@@ -18,4 +18,4 @@ export const client = singleton('db-client', () => {
 
 export const db = singleton('db', () => drizzle(client, { schema }))
 
-await migrate(db, { migrationsFolder: 'app/db/migrations' })
+await migrate(db, { migrationsFolder: 'migrations' })

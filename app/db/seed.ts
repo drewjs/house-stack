@@ -1,22 +1,9 @@
-import { createClient } from '@libsql/client'
-import bcrypt from 'bcryptjs'
-
 import 'dotenv/config'
 
-import { drizzle } from 'drizzle-orm/libsql'
+import bcrypt from 'bcryptjs'
 
-import { invariant } from '~/utils/misc'
-
+import { db } from './db.server'
 import { notes, passwords, users } from './schema'
-
-invariant(process.env.DATABASE_URL, 'DATABASE_URL missing in environment')
-
-const client = createClient({
-  url: process.env.DATABASE_URL,
-  authToken: process.env.DATABASE_AUTH_TOKEN,
-})
-
-const db = drizzle(client)
 
 async function seed() {
   let user = await db
