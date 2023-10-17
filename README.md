@@ -1,5 +1,7 @@
 # Remix House Stack
 
+![The Remix House Stack](https://user-images.githubusercontent.com/2999006/275717355-d474d824-00ac-4db6-a7be-0c564194213e.png)
+
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
 ```sh
@@ -62,7 +64,7 @@ The database seed script creates a new user with some data you can use to get st
 
 ### Relevant code:
 
-This is a pretty simple note-taking app, but it's a good example of how you can build a full stack app with Prisma and Remix. The main functionality is creating users, logging in and out, and creating and deleting notes.
+This is a pretty simple note-taking app, but it's a good example of how you can build a full stack app with Drizzle and Remix. The main functionality is creating users, logging in and out, and creating and deleting notes.
 
 - creating users, and logging in and out [./app/models/user.server.ts](./app/models/user.server.ts)
 - user sessions, and verifying them [./app/utils/session.server.ts](./app/utils/session.server.ts)

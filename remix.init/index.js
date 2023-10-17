@@ -146,6 +146,7 @@ const main = async ({ packageManager, rootDirectory }) => {
     fs.rm(path.join(rootDirectory, '.github', 'dependabot.yml')),
     fs.rm(path.join(rootDirectory, '.github', 'PULL_REQUEST_TEMPLATE.md')),
     fs.rm(path.join(rootDirectory, 'LICENSE.md')),
+    fs.rm(path.join(rootDirectory, 'CONTRIBUTING.md')),
   ])
 
   execSync(pm.run('setup'), { cwd: rootDirectory, stdio: 'inherit' })
