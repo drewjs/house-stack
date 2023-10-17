@@ -9,8 +9,6 @@ processes = [ ]
   allowed_public_ports = [ ]
   auto_rollback = true
 
-[build]
-
 [[mounts]]
   source = "data"
   destination = "/data"

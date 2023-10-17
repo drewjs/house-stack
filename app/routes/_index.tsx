@@ -20,15 +20,15 @@ export default function Index() {
             <div className="absolute inset-0">
               <img
                 className="h-full w-full object-cover"
-                src="https://user-images.githubusercontent.com/1500684/157774694-99820c51-8165-4908-a031-34fc371ac0d6.jpg"
-                alt="Sonic Youth On Stage"
+                src="https://user-images.githubusercontent.com/2999006/275716943-32939de7-a923-4d76-ad9e-8fd01f411cf9.jpg"
+                alt="Fabric London House Music Club"
               />
               <div className="absolute inset-0 bg-[color:rgba(254,204,27,0.5)] mix-blend-multiply" />
             </div>
             <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
               <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
                 <span className="block uppercase text-yellow-500 drop-shadow-md">
-                  Indie Stack
+                  House Stack
                 </span>
               </h1>
               <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
@@ -85,9 +85,9 @@ export default function Index() {
                 href: 'https://sqlite.org',
               },
               {
-                src: 'https://user-images.githubusercontent.com/1500684/157764484-ad64a21a-d7fb-47e3-8669-ec046da20c1f.svg',
-                alt: 'Prisma',
-                href: 'https://prisma.io',
+                src: 'https://user-images.githubusercontent.com/2999006/275713474-8fa87b7a-19c3-4a1c-8b63-48852eeef5ea.png',
+                alt: 'Drizzle ORM',
+                href: 'https://orm.drizzle.team',
               },
               {
                 src: 'https://user-images.githubusercontent.com/1500684/157764276-a516a239-e377-4a20-b44a-0ac7b65c8c14.svg',
