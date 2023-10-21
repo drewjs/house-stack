@@ -13,7 +13,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 
-import globalStyles from '~/styles/global.css'
+import tailwindStyles from '~/styles/tailwind.css'
 import { getUser } from '~/utils/session.server'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
@@ -21,7 +21,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 }
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: globalStyles },
+  { rel: 'stylesheet', href: tailwindStyles },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
