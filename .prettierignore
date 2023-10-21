@@ -3,6 +3,7 @@ pnpm-lock.yaml
 
 /build
 /coverage
+/migrations/meta
 /public/build
 /playwright-report
 /playwright/.cache
