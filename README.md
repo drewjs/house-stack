@@ -5,8 +5,12 @@
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
 ```sh
-npx create-remix@latest --template drewjs/house-stack
+pnpm create remix@latest --template drewjs/house-stack
 ```
+
+> Note: `pnpm` is the official package manager for this project for now.
+>
+> Other packages managers should work fine for local development. If you want to deploy you will need minor changes to the main GitHub action [deploy.yml](./.github/workflows/deploy.yml) and [Dockerfile](./Dockerfile)
 
 ## What's in the stack
 
@@ -25,12 +29,6 @@ npx create-remix@latest --template drewjs/house-stack
 - Static Types with [TypeScript](https://typescriptlang.org)
 
 Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --template your/repo`! Make it your own.
-
-## Quickstart
-
-Click this button to create a [Gitpod](https://gitpod.io) workspace with the project set up and Fly pre-installed
-
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/drewjs/house-stack/tree/main)
 
 ## Development
 

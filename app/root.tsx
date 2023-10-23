@@ -13,7 +13,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 
-import globalStyles from '~/styles/global.css'
+import tailwindStyles from '~/styles/tailwind.css'
 import { getUser } from '~/utils/session.server'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
@@ -21,20 +21,20 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 }
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: globalStyles },
+  { rel: 'stylesheet', href: tailwindStyles },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen">
+      <body className="h-full">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

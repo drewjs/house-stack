@@ -1,5 +1,7 @@
 import { useMatches } from '@remix-run/react'
+import { clsx, type ClassValue } from 'clsx'
 import { useMemo } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 const DEFAULT_REDIRECT = '/'
 
@@ -65,4 +67,8 @@ export function invariant(
   if (!condition) {
     throw new Error(typeof message === 'function' ? message() : message)
   }
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
