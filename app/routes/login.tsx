@@ -7,6 +7,10 @@ import { json, redirect } from '@remix-run/node'
 import { Form, Link, useActionData, useSearchParams } from '@remix-run/react'
 import { useEffect, useRef } from 'react'
 
+import { Button } from '~/components/ui/button'
+import { Checkbox } from '~/components/ui/checkbox'
+import { Input } from '~/components/ui/input'
+import { Label } from '~/components/ui/label'
 import { verifyLogin } from '~/models/user.server'
 import { safeRedirect } from '~/utils/misc'
 import { createUserSession, getUserId } from '~/utils/session.server'
@@ -83,16 +87,11 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
-        <Form method="post" className="space-y-6">
+        <Form method="post" className="space-y-4">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email address
-            </label>
+            <Label htmlFor="email">Email address</Label>
             <div className="mt-1">
-              <input
+              <Input
                 ref={emailRef}
                 id="email"
                 required
@@ -102,7 +101,6 @@ export default function LoginPage() {
                 autoComplete="email"
                 aria-invalid={actionData?.errors?.email ? true : undefined}
                 aria-describedby="email-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
               />
               {actionData?.errors?.email ? (
                 <div className="pt-1 text-red-700" id="email-error">
@@ -113,14 +111,9 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
+            <Label htmlFor="password">Password</Label>
             <div className="mt-1">
-              <input
+              <Input
                 id="password"
                 ref={passwordRef}
                 name="password"
@@ -128,7 +121,6 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 aria-invalid={actionData?.errors?.password ? true : undefined}
                 aria-describedby="password-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
               />
               {actionData?.errors?.password ? (
                 <div className="pt-1 text-red-700" id="password-error">
@@ -139,20 +131,12 @@ export default function LoginPage() {
           </div>
 
           <input type="hidden" name="redirectTo" value={redirectTo} />
-          <button
-            type="submit"
-            className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-400"
-          >
+          <Button type="submit" className="w-full">
             Log in
-          </button>
+          </Button>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <input
-                id="remember"
-                name="remember"
-                type="checkbox"
-                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-              />
+              <Checkbox id="remember" name="remember" />
               <label
                 htmlFor="remember"
                 className="ml-2 block text-sm text-gray-900"
