@@ -1,18 +1,16 @@
-# Remix House Stack
+# House Stack
 
 ![The Remix House Stack](https://user-images.githubusercontent.com/2999006/275717355-d474d824-00ac-4db6-a7be-0c564194213e.png)
-
-Learn more about [Remix Stacks](https://remix.run/stacks).
 
 ```sh
 pnpm create remix@latest --template drewjs/house-stack
 ```
 
-> Note: `pnpm` is the official package manager for this project for now.
->
-> Other packages managers should work fine for local development. If you want to deploy you will need minor changes to the main GitHub action [deploy.yml](./.github/workflows/deploy.yml) and [Dockerfile](./Dockerfile)
+> Note: `pnpm` is the default package manager for this project. Other package managers may require minor changes before deployment.
 
-## What's in the stack
+Learn more about [Remix Stacks](https://remix.run/stacks).
+
+## What's Included
 
 - [Fly app deployment](https://fly.io) with [Docker](https://www.docker.com/)
 - Production-ready [SQLite Database](https://sqlite.org)
