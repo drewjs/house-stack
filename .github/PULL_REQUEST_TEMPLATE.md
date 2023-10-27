@@ -1,14 +1,10 @@
-<!--
+<!-- Summary: Put your summary here -->
 
-👋 Hey, thanks for your interest in contributing to Remix!
+## Test Plan
 
-Our bandwidth on maintaining these stacks is limited. As a team, we're currently
-focusing our efforts on Remix itself. The good news is you can fork and adjust
-this stack however you'd like and start using it today as a custom stack. Learn
-more from [the Remix Stacks docs](https://remix.run/stacks).
+<!-- What steps need to be taken to verify this works as expected? -->
 
-You're still welcome to make a PR. We can't promise a timely response, but
-hopefully when we have the bandwidth to work on these stacks again we can take
-a look. Thanks!
+## Screenshots
 
--->
+<!-- If what you're changing is within the app, please show before/after.
+You can provide a video as well if that makes more sense -->
