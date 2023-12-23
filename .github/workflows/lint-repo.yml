@@ -19,15 +19,20 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
+      - name: ⚙️ Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           cache: npm
-          cache-dependency-path: ./package.json
+          cache-dependency-path: 'package.json'
           node-version: 18
 
       - name: 📥 Install deps
-        run: npm install
+        run: pnpm install
 
       - name: 🔬 Lint
-        run: npm run lint
+        run: pnpm run lint
