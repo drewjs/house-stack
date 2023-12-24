@@ -1,4 +1,3 @@
-/* eslint-disable testing-library/prefer-screen-queries */
 import { faker } from '@faker-js/faker'
 import { expect, test } from 'test/playwright-utils'
 

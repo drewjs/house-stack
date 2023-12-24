@@ -1,4 +1,3 @@
-/* eslint-disable prefer-let/prefer-let */
 const { execSync } = require('node:child_process')
 const crypto = require('node:crypto')
 const fs = require('node:fs/promises')
@@ -49,11 +48,7 @@ const getRandomString = length => crypto.randomBytes(length).toString('hex')
 
 const updatePackageJson = ({ APP_NAME, packageJson }) => {
   const {
-    scripts: {
-      // eslint-disable-next-line no-unused-vars
-      'format:repo': _repoFormatScript,
-      ...scripts
-    },
+    scripts: { 'format:repo': _repoFormatScript, ...scripts },
   } = packageJson.content
 
   packageJson.update({
@@ -76,7 +71,7 @@ const main = async ({ packageManager, rootDirectory }) => {
   const DIR_NAME = path.basename(rootDirectory)
   const SUFFIX = getRandomString(2)
 
-  const APP_NAME = (DIR_NAME + '-' + SUFFIX)
+  const APP_NAME = `${DIR_NAME}-${SUFFIX}`
     // get rid of anything that's not allowed in an app name
     .replace(/[^a-zA-Z0-9-_]/g, '-')
 
@@ -121,7 +116,7 @@ const main = async ({ packageManager, rootDirectory }) => {
         )
         .replace(
           new RegExp(escapeRegExp('pnpm install'), 'g'),
-          `pnpm install --frozen-lockfile`,
+          'pnpm install --frozen-lockfile',
         )
     : dockerfile
 

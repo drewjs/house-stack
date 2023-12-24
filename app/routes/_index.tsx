@@ -121,11 +121,11 @@ export default function Index() {
               },
               {
                 src: 'https://user-images.githubusercontent.com/1500684/157772990-3968ff7c-b551-4c55-a25c-046a32709a8e.svg',
-                alt: 'ESLint',
-                href: 'https://eslint.org',
+                alt: 'Biome',
+                href: 'https://biomejs.dev',
               },
               {
-                src: 'https://user-images.githubusercontent.com/1500684/157773063-20a0ed64-b9f8-4e0b-9d1e-0b65a3d4a6db.svg',
+                src: 'https://raw.githubusercontent.com/gist/drewjs/b5f1a65347cb958561ebdf0d278f4408/raw/0d8c31b9ad0d45897dfa2d4388df25550f0e4a41/biome-logo.cd0a0a87.svg',
                 alt: 'TypeScript',
                 href: 'https://typescriptlang.org',
               },
