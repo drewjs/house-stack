@@ -71,7 +71,7 @@ const main = async ({ packageManager, rootDirectory }) => {
   const DIR_NAME = path.basename(rootDirectory)
   const SUFFIX = getRandomString(2)
 
-  const APP_NAME = (DIR_NAME + '-' + SUFFIX)
+  const APP_NAME = `${DIR_NAME}-${SUFFIX}`
     // get rid of anything that's not allowed in an app name
     .replace(/[^a-zA-Z0-9-_]/g, '-')
 
@@ -116,7 +116,7 @@ const main = async ({ packageManager, rootDirectory }) => {
         )
         .replace(
           new RegExp(escapeRegExp('pnpm install'), 'g'),
-          `pnpm install --frozen-lockfile`,
+          'pnpm install --frozen-lockfile',
         )
     : dockerfile
 
