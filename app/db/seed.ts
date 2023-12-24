@@ -42,7 +42,7 @@ async function seed() {
     },
   ])
 
-  console.log(`Database has been seeded. 🌱`)
+  console.log('Database has been seeded. 🌱')
   process.exit(0)
 }
 
