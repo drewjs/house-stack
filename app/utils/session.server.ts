@@ -2,10 +2,6 @@ import { createCookieSessionStorage, redirect } from '@remix-run/node'
 
 import { getUserById, type User } from '~/models/user.server'
 
-import { invariant } from './misc'
-
-invariant(process.env.SESSION_SECRET, 'SESSION_SECRET must be set')
-
 export const sessionStorage = createCookieSessionStorage({
   cookie: {
     name: '__session',

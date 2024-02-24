@@ -8,7 +8,7 @@ export default {
   breakpoints: true,
   driver: 'turso',
   dbCredentials: {
-    url: process.env.DATABASE_URL as string,
+    url: process.env.DATABASE_URL,
     authToken: process.env.DATABASE_AUTH_TOKEN,
   },
   tablesFilter: ['!libsql_wasm_func_table'],
