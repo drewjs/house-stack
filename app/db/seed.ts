@@ -6,9 +6,6 @@ import { drizzle } from 'drizzle-orm/libsql'
 import { migrate } from 'drizzle-orm/libsql/migrator'
 
 import { notes, passwords, users } from '~/db/schema'
-import { invariant } from '~/utils/misc'
-
-invariant(process.env.DATABASE_URL, 'DATABASE_URL is required')
 
 const client = createClient({
   url: process.env.DATABASE_URL,
