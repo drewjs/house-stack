@@ -8,13 +8,14 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   css: { postcss: { plugins: [] } },
   test: {
-    coverage: {
-      include: ['app/**/*.{ts,tsx}'],
-      all: true,
-    },
     environment: 'happy-dom',
     globals: true,
     include: ['./app/**/*.test.{ts,tsx}'],
     setupFiles: ['./test/setup-test-env.ts'],
+    restoreMocks: true,
+    coverage: {
+      include: ['app/**/*.{ts,tsx}'],
+      all: true,
+    },
   },
 })
