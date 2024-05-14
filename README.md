@@ -155,3 +155,5 @@ This project uses TypeScript. It's recommended to get TypeScript set up for your
 This project uses Biome for linting and formatting. That is configured in `./biome.json`. It's recommended to set up Biome for your editor as well. See docs [here](https://biomejs.dev/guides/integrate-in-editor/)
 
 If you would like to enable import sorting set `organizeImports.enabled = true`. You will need to run `pnpm biome check --apply .` or configure your editor to automatically [run on save](https://biomejs.dev/analyzer/import-sorting/#import-sorting-via-vscode-extension)
+
+Class sorting for CSS utilities like Tailwind is also available, however it is still under development. details [here](https://biomejs.dev/linter/rules/use-sorted-classes/#_top)
