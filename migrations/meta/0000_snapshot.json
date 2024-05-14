@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "250e0afe-75e0-415f-ac59-eafd5b472ec7",
-  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "notes": {
       "name": "notes",
@@ -57,15 +55,15 @@
         "notes_user_id_users_id_fk": {
           "name": "notes_user_id_users_id_fk",
           "tableFrom": "notes",
-          "tableTo": "users",
           "columnsFrom": [
             "user_id"
           ],
+          "tableTo": "users",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
@@ -94,15 +92,15 @@
         "passwords_user_id_users_id_fk": {
           "name": "passwords_user_id_users_id_fk",
           "tableFrom": "passwords",
-          "tableTo": "users",
           "columnsFrom": [
             "user_id"
           ],
+          "tableTo": "users",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
@@ -158,8 +156,9 @@
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "250e0afe-75e0-415f-ac59-eafd5b472ec7",
+  "prevId": "00000000-0000-0000-0000-000000000000"
 }
