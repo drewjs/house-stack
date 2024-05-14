@@ -2,8 +2,8 @@ name: 🥺 No Response
 
 on:
   schedule:
-    # Schedule for five minutes after the hour, every hour
-    - cron: '5 * * * *'
+    # Schedule for daily at 2am
+    - cron: '0 2 * * *'
 
 permissions:
   issues: write
