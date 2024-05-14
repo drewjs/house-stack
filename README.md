@@ -22,8 +22,7 @@ Learn more about [Remix Stacks](https://remix.run/stacks).
 - End-to-end testing with [Playwright](https://playwright.dev)
 - Local third party request mocking with [MSW](https://mswjs.io)
 - Unit testing with [Vitest](https://vitest.dev) and [Testing Library](https://testing-library.com)
-- Code formatting with [Prettier](https://prettier.io)
-- Linting with [Biome](https://biomejs.dev)
+- Linting and formatting with [Biome](https://biomejs.dev)
 - Static Types with [TypeScript](https://typescriptlang.org)
 
 Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --template your/repo`! Make it your own.
@@ -153,8 +152,6 @@ This project uses TypeScript. It's recommended to get TypeScript set up for your
 
 ### Linting
 
-This project uses Biome for linting. That is configured in `./biome.json`.
+This project uses Biome for linting and formatting. That is configured in `./biome.json`.
 
-### Formatting
-
-We use [Prettier](https://prettier.io/) for auto-formatting in this project. It's recommended to install an editor plugin (like the [VSCode Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)) to get auto-formatting on save. There's also a `pnpm run format` script you can run to format all files in the project.
+It's recommended to set up Biome for your editor as well. See docs [here](https://biomejs.dev/guides/integrate-in-editor/)
