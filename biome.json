@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["build", "public/build"]
+    "ignore": ["./migrations/meta"]
   },
   "formatter": {
     "enabled": true,
@@ -10,8 +10,7 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 80,
-    "attributePosition": "auto",
-    "ignore": ["./migrations/meta"]
+    "attributePosition": "auto"
   },
   "organizeImports": {
     "enabled": false
