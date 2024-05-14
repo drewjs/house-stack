@@ -7,8 +7,8 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "db:generate": "drizzle-kit generate:sqlite",
-    "db:push": "drizzle-kit push:sqlite",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
     "db:seed": "node --loader esbuild-register/loader -r esbuild-register ./app/db/seed.ts",
     "db:studio": "drizzle-kit studio",
     "dev": "remix vite:dev",
