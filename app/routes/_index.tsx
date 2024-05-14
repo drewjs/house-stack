@@ -115,11 +115,6 @@ export default function Index() {
                 href: 'https://testing-library.com',
               },
               {
-                src: 'https://user-images.githubusercontent.com/1500684/157772934-ce0a943d-e9d0-40f8-97f3-f464c0811643.svg',
-                alt: 'Prettier',
-                href: 'https://prettier.io',
-              },
-              {
                 src: 'https://user-images.githubusercontent.com/1500684/157772990-3968ff7c-b551-4c55-a25c-046a32709a8e.svg',
                 alt: 'Biome',
                 href: 'https://biomejs.dev',
