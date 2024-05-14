@@ -5,7 +5,14 @@ const schema = z.object({
   SESSION_SECRET: z.string(),
 })
 
-schema.parse(process.env)
+export function init() {
+  let result = schema.safeParse(process.env)
+  if (result.success) return
+
+  console.error('Invalid environment variables', result.error.flatten())
+
+  throw new Error('Invalid environment variables')
+}
 
 declare global {
   namespace NodeJS {
