@@ -139,7 +139,7 @@ export default function Join() {
             Create account
           </Button>
           <div className="flex items-center justify-center">
-            <div className="text-center text-sm text-gray-500">
+            <div className="text-center text-gray-500 text-sm">
               Already have an account?{' '}
               <Link
                 className="text-blue-500 underline"

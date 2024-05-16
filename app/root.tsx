@@ -10,10 +10,8 @@ import {
 } from '@remix-run/react'
 
 import { getUser } from '~/utils/session.server'
-
-import '~/styles/tailwind.css'
-
 import { getErrorMessage } from './utils/misc'
+import '~/styles/tailwind.css'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return json({ user: await getUser(request) })

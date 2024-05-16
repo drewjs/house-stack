@@ -14,8 +14,8 @@ export default function Index() {
   let user = useOptionalUser()
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
-      <div className="relative sm:pb-16 sm:pt-8">
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="relative sm:pt-8 sm:pb-16">
+        <div className="mx-auto max-w-7xl lg:px-8 sm:px-6">
           <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
             <div className="absolute inset-0">
               <img
@@ -25,13 +25,13 @@ export default function Index() {
               />
               <div className="absolute inset-0 bg-[color:rgba(254,204,27,0.5)] mix-blend-multiply" />
             </div>
-            <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
-              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-                <span className="block uppercase text-yellow-500 drop-shadow-md">
+            <div className="relative px-4 pt-16 pb-8 lg:px-8 sm:px-6 lg:pt-32 sm:pt-24 lg:pb-20 sm:pb-14">
+              <h1 className="text-center font-extrabold text-6xl tracking-tight lg:text-9xl sm:text-8xl">
+                <span className="block text-yellow-500 uppercase drop-shadow-md">
                   House Stack
                 </span>
               </h1>
-              <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
+              <p className="mx-auto mt-6 max-w-lg text-center text-white text-xl sm:max-w-3xl">
                 Check the README.md file for instructions on how to get this
                 project deployed.
               </p>
@@ -39,7 +39,7 @@ export default function Index() {
                 {user ? (
                   <Link
                     to="/notes"
-                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 font-medium text-base text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
                   >
                     View Notes for {user.email}
                   </Link>
@@ -47,7 +47,7 @@ export default function Index() {
                   <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
                     <Link
                       to="/join"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 font-medium text-base text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
                     >
                       Sign up
                     </Link>
@@ -71,7 +71,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-2 lg:px-8 sm:px-6">
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
@@ -128,7 +128,7 @@ export default function Index() {
               <a
                 key={img.href}
                 href={img.href}
-                className="flex h-16 w-32 justify-center p-1 grayscale transition hover:grayscale-0 focus:grayscale-0"
+                className="flex h-16 w-32 justify-center p-1 grayscale transition focus:grayscale-0 hover:grayscale-0"
               >
                 <img alt={img.alt} src={img.src} className="object-contain" />
               </a>

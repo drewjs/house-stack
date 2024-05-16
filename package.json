@@ -13,7 +13,7 @@
     "db:studio": "drizzle-kit studio",
     "dev": "remix vite:dev",
     "dev:mocks": "binode -r ./mocks/index.cjs -- vite:vite dev",
-    "format": "biome check --apply .",
+    "fix": "biome check --apply-unsafe .",
     "lint": "biome check .",
     "setup": "pnpm db:seed",
     "start": "binode -r dotenv/config -- @remix-run/serve:remix-serve ./build/server/index.js",
