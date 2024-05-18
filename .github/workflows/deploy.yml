@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   lint:
-    name: ⬣ ESLint
+    name: ⬣ Lint
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -40,28 +40,6 @@ jobs:
 
       - name: 🔬 Lint
         run: pnpm run lint
-
-  typecheck:
-    name: ʦ TypeScript
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⚙️ Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          cache-dependency-path: 'package.json'
-          node-version: 20
-
-      - name: 📥 Install deps
-        run: pnpm install
 
       - name: 🔎 Type check
         run: pnpm run typecheck
@@ -115,9 +93,6 @@ jobs:
 
       - name: 🏄 Copy test env vars
         run: cp .env.example .env
-
-      # - name: 🛠 Setup database
-      #   run: pnpm run db:push
 
       - name: ⚙️ Build
         run: pnpm run build

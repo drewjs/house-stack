@@ -42,7 +42,9 @@ const getPackageManagerCommand = packageManager =>
 
 const getPackageManagerVersion = packageManager =>
   // Copied over from https://github.com/nrwl/nx/blob/bd9b33eaef0393d01f747ea9a2ac5d2ca1fb87c6/packages/nx/src/utils/package-manager.ts#L105-L114
-  execSync(`${packageManager} --version`).toString('utf-8').trim()
+  execSync(`${packageManager} --version`)
+    .toString('utf-8')
+    .trim()
 
 const getRandomString = length => crypto.randomBytes(length).toString('hex')
 

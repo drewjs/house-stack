@@ -139,12 +139,12 @@ export default function LoginPage() {
               <Checkbox id="remember" name="remember" />
               <label
                 htmlFor="remember"
-                className="ml-2 block text-sm text-gray-900"
+                className="ml-2 block text-gray-900 text-sm"
               >
                 Remember me
               </label>
             </div>
-            <div className="text-center text-sm text-gray-500">
+            <div className="text-center text-gray-500 text-sm">
               Don't have an account?{' '}
               <Link
                 className="text-blue-500 underline"
