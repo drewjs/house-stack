@@ -95,11 +95,6 @@ export default function Index() {
                 href: 'https://tailwindcss.com',
               },
               {
-                src: 'https://user-images.githubusercontent.com/1500684/157764454-48ac8c71-a2a9-4b5e-b19c-edef8b8953d6.svg',
-                alt: 'Cypress',
-                href: 'https://www.cypress.io',
-              },
-              {
                 src: 'https://user-images.githubusercontent.com/1500684/157772386-75444196-0604-4340-af28-53b236faa182.svg',
                 alt: 'MSW',
                 href: 'https://mswjs.io',
@@ -115,14 +110,19 @@ export default function Index() {
                 href: 'https://testing-library.com',
               },
               {
-                src: 'https://user-images.githubusercontent.com/1500684/157772990-3968ff7c-b551-4c55-a25c-046a32709a8e.svg',
+                src: 'https://raw.githubusercontent.com/gist/drewjs/b5f1a65347cb958561ebdf0d278f4408/raw/0d8c31b9ad0d45897dfa2d4388df25550f0e4a41/biome-logo.cd0a0a87.svg',
                 alt: 'Biome',
                 href: 'https://biomejs.dev',
               },
               {
-                src: 'https://raw.githubusercontent.com/gist/drewjs/b5f1a65347cb958561ebdf0d278f4408/raw/0d8c31b9ad0d45897dfa2d4388df25550f0e4a41/biome-logo.cd0a0a87.svg',
+                src: 'https://raw.githubusercontent.com/gist/drewjs/b5f1a65347cb958561ebdf0d278f4408/raw/1a55b98122ea8fba51b1ddcf89bd16f050bacf27/typescript-logo.svg',
                 alt: 'TypeScript',
                 href: 'https://typescriptlang.org',
+              },
+              {
+                src: 'https://raw.githubusercontent.com/gist/drewjs/b5f1a65347cb958561ebdf0d278f4408/raw/a131d9f8fd1478d943de5b0cf9da6bac402d25d5/sentry-logo.svg',
+                alt: 'Sentry',
+                href: 'https://sentry.io',
               },
             ].map(img => (
               <a
