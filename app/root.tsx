@@ -1,20 +1,17 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import {
-  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useRouteError,
 } from '@remix-run/react'
 
+import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { getUser } from '~/utils/session.server'
-import { getErrorMessage } from './utils/misc'
+import { getEnv } from '~/utils/env.server'
 import '~/styles/tailwind.css'
-import { getEnv } from './utils/env.server'
-import { GeneralErrorBoundary } from './components/error-boundary'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return json({ env: getEnv(), user: await getUser(request) })
@@ -51,10 +48,9 @@ function Document({
 }
 
 export default function App() {
-  //let data = useLoaderData<typeof loader>()
-
+  let data = useLoaderData<typeof loader>()
   return (
-    <Document>
+    <Document env={data.env}>
       <Outlet />
     </Document>
   )
@@ -67,24 +63,3 @@ export function ErrorBoundary() {
     </Document>
   )
 }
-//export function ErrorBoundary() {
-//  const error = useRouteError()
-//
-//  if (isRouteErrorResponse(error)) {
-//    return (
-//      <>
-//        <h1>
-//          {error.status} {error.statusText}
-//        </h1>
-//        <p>{error.data}</p>
-//      </>
-//    )
-//  }
-//
-//  return (
-//    <>
-//      <h1>Error!</h1>
-//      <p>{getErrorMessage(error)}</p>
-//    </>
-//  )
-//}
