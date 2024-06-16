@@ -13,9 +13,9 @@ WORKDIR /app
 ENV NODE_ENV="production"
 
 # Install pnpm
-ARG PNPM_VERSION=8.9.1
-RUN npm install -g pnpm@$PNPM_VERSION
-
+ARG PNPM_VERSION=latest-9
+RUN corepack enable
+RUN corepack prepare pnpm@$PNPM_VERSION --activate
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
