@@ -16,12 +16,16 @@ import * as Sentry from '@sentry/remix'
 import { isbot } from 'isbot'
 import { renderToPipeableStream } from 'react-dom/server'
 
-import { getEnv, init } from '~/utils/env.server'
+import { getEnv, init as initEnv } from '~/utils/env.server'
 
 const ABORT_DELAY = 5_000
 
-init()
+initEnv()
 global.ENV = getEnv()
+
+if (process.env.MOCKS === 'true') {
+  import('./mocks/node').then(({ init }) => init())
+}
 
 if (ENV.MODE === 'production' && ENV.SENTRY_DSN) {
   import('./utils/monitor.server').then(({ init }) => init())

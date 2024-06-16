@@ -3,17 +3,13 @@
   "organizeImports": {
     "enabled": false
   },
+  "files": {
+    "ignore": ["./migrations"]
+  },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-      "style": {
-        "noParameterAssign": "off",
-        "useConst": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "off"
-      },
       "nursery": {
         "useSortedClasses": {
           "level": "warn",
@@ -21,30 +17,36 @@
             "functions": ["clsx", "cva", "cn"]
           }
         }
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      },
+      "style": {
+        "noParameterAssign": "off",
+        "useConst": "off"
       }
     }
   },
   "formatter": {
     "enabled": true,
+    "attributePosition": "auto",
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 80,
-    "attributePosition": "auto",
-    "ignore": ["./migrations"]
+    "lineWidth": 80
   },
   "javascript": {
     "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingComma": "all",
-      "semicolons": "asNeeded",
       "arrowParentheses": "asNeeded",
+      "attributePosition": "auto",
       "bracketSpacing": true,
       "bracketSameLine": false,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
       "quoteStyle": "single",
-      "attributePosition": "auto"
+      "semicolons": "asNeeded",
+      "trailingCommas": "all"
     }
   },
   "vcs": {
