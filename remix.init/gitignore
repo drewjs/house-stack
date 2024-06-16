@@ -7,4 +7,9 @@ node_modules
 /coverage
 /playwright-report
 /playwright/.cache
+/test-results
 *.db
+
+# Sentry
+.sentryclirc
+.env.sentry-build-plugin
