@@ -137,9 +137,6 @@ const main = async ({ packageManager, rootDirectory }) => {
     fs.rm(path.join(rootDirectory, '.github', 'ISSUE_TEMPLATE'), {
       recursive: true,
     }),
-    fs.rm(path.join(rootDirectory, '.github', 'workflows', 'format-repo.yml')),
-    fs.rm(path.join(rootDirectory, '.github', 'workflows', 'lint-repo.yml')),
-    fs.rm(path.join(rootDirectory, '.github', 'workflows', 'no-response.yml')),
     fs.rm(path.join(rootDirectory, '.github', 'dependabot.yml')),
     fs.rm(path.join(rootDirectory, '.github', 'PULL_REQUEST_TEMPLATE.md')),
     fs.rm(path.join(rootDirectory, 'LICENSE.md')),
@@ -148,7 +145,7 @@ const main = async ({ packageManager, rootDirectory }) => {
 
   execSync(pm.run('setup'), { cwd: rootDirectory, stdio: 'inherit' })
 
-  execSync(pm.run('format', '--log-level warn'), {
+  execSync(pm.run('fix', '--log-level warn'), {
     cwd: rootDirectory,
     stdio: 'inherit',
   })
