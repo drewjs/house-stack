@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from '@remix-run/react'
+import { withSentry } from '@sentry/remix'
 
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { getUser } from '~/utils/session.server'
@@ -47,7 +48,7 @@ function Document({
   )
 }
 
-export default function App() {
+function App() {
   let data = useLoaderData<typeof loader>()
   return (
     <Document env={data.env}>
@@ -55,6 +56,8 @@ export default function App() {
     </Document>
   )
 }
+
+export default withSentry(App)
 
 export function ErrorBoundary() {
   return (
