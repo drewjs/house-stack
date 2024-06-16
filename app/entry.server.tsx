@@ -4,17 +4,28 @@
  * For more information, see https://remix.run/file-conventions/entry.server
  */
 import { PassThrough } from 'node:stream'
-import type { AppLoadContext, EntryContext } from '@remix-run/node'
+import type {
+  ActionFunctionArgs,
+  AppLoadContext,
+  EntryContext,
+  LoaderFunctionArgs,
+} from '@remix-run/node'
 import { createReadableStreamFromReadable } from '@remix-run/node'
 import { RemixServer } from '@remix-run/react'
+import * as Sentry from '@sentry/remix'
 import { isbot } from 'isbot'
 import { renderToPipeableStream } from 'react-dom/server'
 
-import { init } from '~/utils/env.server'
-
-init()
+import { getEnv, init } from '~/utils/env.server'
 
 const ABORT_DELAY = 5_000
+
+init()
+global.ENV = getEnv()
+
+if (ENV.MODE === 'production' && ENV.SENTRY_DSN) {
+  import('./utils/monitor.server').then(({ init }) => init())
+}
 
 export default function handleRequest(
   request: Request,
@@ -136,4 +147,19 @@ function handleBrowserRequest(
 
     setTimeout(abort, ABORT_DELAY)
   })
+}
+
+export function handleError(
+  error: unknown,
+  args: LoaderFunctionArgs | ActionFunctionArgs,
+) {
+  if (args.request.signal.aborted) return
+
+  if (error instanceof Error) {
+    console.error(error.stack)
+  } else {
+    console.error(error)
+  }
+
+  Sentry.sentryHandleError(error, args as any)
 }

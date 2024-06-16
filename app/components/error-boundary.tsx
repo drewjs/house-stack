@@ -4,7 +4,7 @@ import {
   useParams,
   useRouteError,
 } from '@remix-run/react'
-//import { captureRemixErrorBoundaryError } from '@sentry/remix'
+import { captureRemixErrorBoundaryError } from '@sentry/remix'
 import { getErrorMessage } from '~/utils/misc'
 
 type StatusHandler = (info: {
@@ -26,7 +26,7 @@ export function GeneralErrorBoundary({
   unexpectedErrorHandler?: (error: unknown) => JSX.Element | null
 }) {
   let error = useRouteError()
-  //captureRemixErrorBoundaryError(error)
+  captureRemixErrorBoundaryError(error)
   let params = useParams()
 
   if (typeof document !== 'undefined') {
