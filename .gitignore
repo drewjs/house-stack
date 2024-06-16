@@ -16,3 +16,7 @@ node_modules
 /playwright/.cache
 /test-results
 *.db
+
+# Sentry
+.sentryclirc
+.env.sentry-build-plugin

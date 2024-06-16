@@ -157,3 +157,8 @@ This project uses Biome for linting and formatting. That is configured in `./bio
 If you would like to enable import sorting set `organizeImports.enabled = true`. You will need to run `pnpm biome check --apply .` or configure your editor to automatically [run on save](https://biomejs.dev/analyzer/import-sorting/#import-sorting-via-vscode-extension)
 
 Class sorting for CSS utilities like Tailwind is also available, however it is still under development. details [here](https://biomejs.dev/linter/rules/use-sorted-classes/#_top)
+
+## Special Thanks
+
+- [Remix](https://github.com/remix-run/remix) team - for this cool framework that makes making websites super fun
+- [Epic Stack](https://github.com/epicweb-dev/epic-stack) - for many of the ideas and other inspiration in the project

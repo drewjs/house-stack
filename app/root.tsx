@@ -1,23 +1,30 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import {
-  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  useRouteError,
+  useLoaderData,
 } from '@remix-run/react'
+import { withSentry } from '@sentry/remix'
 
+import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { getUser } from '~/utils/session.server'
-import { getErrorMessage } from './utils/misc'
+import { getEnv } from '~/utils/env.server'
 import '~/styles/tailwind.css'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  return json({ user: await getUser(request) })
+  return json({ env: getEnv(), user: await getUser(request) })
 }
 
-export function Layout({ children }: { children: React.ReactNode }) {
+function Document({
+  children,
+  env = {},
+}: {
+  children: React.ReactNode
+  env?: Record<string, string>
+}) {
   return (
     <html lang="en">
       <head>
@@ -28,6 +35,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: setup client env
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(env)}`,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -35,28 +48,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default function App() {
-  return <Outlet />
+function App() {
+  let data = useLoaderData<typeof loader>()
+  return (
+    <Document env={data.env}>
+      <Outlet />
+    </Document>
+  )
 }
 
+export default withSentry(App)
+
 export function ErrorBoundary() {
-  const error = useRouteError()
-
-  if (isRouteErrorResponse(error)) {
-    return (
-      <>
-        <h1>
-          {error.status} {error.statusText}
-        </h1>
-        <p>{error.data}</p>
-      </>
-    )
-  }
-
   return (
-    <>
-      <h1>Error!</h1>
-      <p>{getErrorMessage(error)}</p>
-    </>
+    <Document>
+      <GeneralErrorBoundary />
+    </Document>
   )
 }

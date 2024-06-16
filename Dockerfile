@@ -20,6 +20,13 @@ RUN npm install -g pnpm@$PNPM_VERSION
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
+ARG COMMIT_SHA
+ENV COMMIT_SHA=$COMMIT_SHA
+
+# Use the following environment variables to configure Sentry
+# ENV SENTRY_ORG=
+# ENV SENTRY_PROJECT=
+
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
     apt-get install -y build-essential pkg-config python-is-python3
@@ -32,7 +39,9 @@ RUN pnpm install --prod=false
 COPY --link . .
 
 # Build application
-RUN pnpm run build
+RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN \
+  export SENTRY_AUTH_TOKEN=$(cat /run/secrets/SENTRY_AUTH_TOKEN) && \
+  pnpm run build
 
 # Remove development dependencies
 RUN pnpm prune --prod

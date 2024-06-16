@@ -35,6 +35,8 @@
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
+    "@sentry/remix": "^8.9.2",
+    "@sentry/vite-plugin": "^2.18.0",
     "bcryptjs": "^2.4.3",
     "better-sqlite3": "^10.0.0",
     "binode": "^1.0.5",
