@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { z } from 'zod'
 
 let schema = z.object({
