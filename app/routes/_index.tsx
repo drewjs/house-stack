@@ -15,7 +15,7 @@ export default function Index() {
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pt-8 sm:pb-16">
-        <div className="mx-auto max-w-7xl lg:px-8 sm:px-6">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
             <div className="absolute inset-0">
               <img
@@ -25,8 +25,8 @@ export default function Index() {
               />
               <div className="absolute inset-0 bg-[color:rgba(254,204,27,0.5)] mix-blend-multiply" />
             </div>
-            <div className="relative px-4 pt-16 pb-8 lg:px-8 sm:px-6 lg:pt-32 sm:pt-24 lg:pb-20 sm:pb-14">
-              <h1 className="text-center font-extrabold text-6xl tracking-tight lg:text-9xl sm:text-8xl">
+            <div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32 lg:pb-20">
+              <h1 className="text-center font-extrabold text-6xl tracking-tight sm:text-8xl lg:text-9xl">
                 <span className="block text-yellow-500 uppercase drop-shadow-md">
                   House Stack
                 </span>
@@ -71,7 +71,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 py-2 lg:px-8 sm:px-6">
+        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
@@ -128,7 +128,7 @@ export default function Index() {
               <a
                 key={img.href}
                 href={img.href}
-                className="flex h-16 w-32 justify-center p-1 grayscale transition focus:grayscale-0 hover:grayscale-0"
+                className="flex h-16 w-32 justify-center p-1 grayscale transition hover:grayscale-0 focus:grayscale-0"
               >
                 <img alt={img.alt} src={img.src} className="object-contain" />
               </a>
