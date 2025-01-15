@@ -21,7 +21,7 @@
     "test": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:dev": "playwright test --ui",
-    "test:e2e:install": "pnpm dlx playwright install --with-deps chromium",
+    "test:e2e:install": "pnpm exec playwright install",
     "test:e2e:run": "cross-env CI=true playwright test",
     "typecheck": "tsc"
   },
